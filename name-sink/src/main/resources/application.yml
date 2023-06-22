@@ -1,0 +1,25 @@
+server:
+  port: 9096
+
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:
+    stream:
+      bindings:
+        listen-in-0:
+          destination: your-topic-name
+          group: hs-quee
+          consumer:
+            bindingRoutingKey: routingKey
+            exchangeType: topic
+            queueNameGroupOnly: true
+            bindQueue: true
+            declareExchange: false
+
+
